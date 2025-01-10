@@ -1,0 +1,17 @@
+name: cs135_25s_env
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - git
+  ## Scientific Computing
+  - numpy=1.26
+  - scipy=1.14
+  ## Visualization
+  - notebook=6.5
+  - matplotlib=3.10
+  - seaborn=0.13
+  ## Data I/O
+  - pandas=2.0
+  ## Machine Learning
+  - scikit-learn=1.5

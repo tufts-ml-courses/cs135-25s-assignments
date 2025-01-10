@@ -1,0 +1,48 @@
+name: env-runs-on-windows
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  verify-env-windows:
+    name: verify-${{ matrix.os }}-Py${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["windows-latest"]
+        python-version: ["3.11"]
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      # Print what we want to install
+      - run: |
+          cat cs135_25s_env.yml
+      # Micromamba
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          micromamba-version: '1.5.6-0' # any version from https://github.com/mamba-org/micromamba-releases
+          environment-file: cs135_25s_env.yml
+          environment-name: cs135_25s_env
+          init-shell: >-
+            bash
+          cache-environment: true
+          post-cleanup: 'all'
+      # Verify the install by printing out the packages  
+      - name: Verify by printing out versions
+        shell: bash -el {0}
+        run: |
+          micromamba info
+          micromamba list
+          python -c "import numpy; print(numpy.__version__)"
+          python -c "import scipy; print(scipy.__version__)"
+          python -c "import sklearn; print(sklearn.__version__)"
