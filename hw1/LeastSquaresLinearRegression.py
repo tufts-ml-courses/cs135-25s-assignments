@@ -25,6 +25,7 @@ Test Cases
 import numpy as np
 # No other imports allowed!
 
+
 class LeastSquaresLinearRegressor(object):
     ''' A linear regression model with sklearn-like API
 
@@ -71,17 +72,16 @@ class LeastSquaresLinearRegressor(object):
         Notes
         -----
         The least-squares optimization problem is:
-        
+
         .. math:
             \min_{w \in \mathbb{R}^F, b \in \mathbb{R}}
                 \sum_{n=1}^N (y_n - b - \sum_f x_{nf} w_f)^2
-        '''      
+        '''
         N, F = x_NF.shape
-        
-        # Hint: Use np.linalg.solve
-        # Using np.linalg.inv may cause issues (see day03 lab) 
-        pass # TODO fixme
 
+        # Hint: Use np.linalg.solve
+        # Using np.linalg.inv may cause issues (see day03 lab)
+        pass  # TODO fixme
 
     def predict(self, x_MF):
         ''' Make predictions given input features for M examples
@@ -99,8 +99,6 @@ class LeastSquaresLinearRegressor(object):
         '''
         # TODO FIX ME
         return np.asarray([0.0])
-
-
 
 
 def test_on_toy_data(N=100):
@@ -122,7 +120,8 @@ def test_on_toy_data(N=100):
 
     yhat_N = linear_regr.predict(x_NF)
 
-    np.set_printoptions(precision=3, formatter={'float':lambda x: '% .3f' % x})
+    np.set_printoptions(precision=3, formatter={
+                        'float': lambda x: '% .3f' % x})
 
     print("True weights")
     print(true_w_F)
@@ -133,6 +132,7 @@ def test_on_toy_data(N=100):
     print(np.asarray([true_b]))
     print("Estimated intercept")
     print(np.asarray([linear_regr.b]))
+
 
 if __name__ == '__main__':
     test_on_toy_data()
