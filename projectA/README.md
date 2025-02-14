@@ -12,7 +12,7 @@ Instruction webpage:
 This dataset comes from research work by Jordan J. Bird, released in December 2024.
 His raw dataset, *UK Key Stage Readability for English Texts* is [available on Kaggle](https://www.kaggle.com/datasets/birdy654/uk-key-stage-readability-for-english-texts) under an MIT license. 
 
-Note that we (the staff of CS 135) have *remixed* the original data, developing our own training and test sets for the purposes of this project. Performance on project A should not be directly comparable to the research by Prof. Bird reported in the manuscript below. Primary differences include a smaller train set (roughly 6000 instead of much more) due to limited the number of passages from the same literary work and ensuring authors in train set never appear in the test set.
+Note that we (the staff of CS 135) have *remixed* the original data, developing our own training and test sets for the purposes of this project. Performance on project A should not be directly comparable to the research by Dr. Bird reported in the manuscript below. Primary differences include a smaller train set (roughly 6000 instead of much more) due to our desire to intentionally limit the number of passages from the same literary work. We also ensure authors in train set never appear in the test set.
 
 <blockquote style="margin-left: 5em">
 <p>
