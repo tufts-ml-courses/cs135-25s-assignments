@@ -146,8 +146,9 @@ def calc_mean_BCE_from_probas(ytrue_N, yproba1_N):
     '''
     # Cast labels to integer just to be sure we're getting what's expected
     ytrue_N = np.asarray(ytrue_N, dtype=np.int32)
-    assert np.min(ytrue_N) >= 0
-    assert np.max(ytrue_N) <= 1
+    if ytrue_N.size > 0:
+        assert np.min(ytrue_N) >= 0
+        assert np.max(ytrue_N) <= 1
     N = int(ytrue_N.size)
     # Cast probas to float and be sure we're between zero and one
     yproba1_N = np.asarray(yproba1_N, dtype=np.float64)           # dont touch
