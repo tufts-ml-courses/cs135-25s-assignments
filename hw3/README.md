@@ -1,4 +1,4 @@
-## HW2 Instructions
+## HW3 Instructions
 
 https://www.cs.tufts.edu/cs/135/2025s/hw3.html
 
