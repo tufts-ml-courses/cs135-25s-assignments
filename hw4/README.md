@@ -1,4 +1,6 @@
-Implementation TODO list for students for this HW
+Implementation TODO list for students for HW4 in 2025
+
+Official instructions: <https://www.cs.tufts.edu/cs/135/2025s/hw4.html>
 
 ## Problem 3: Coding tasks
 
